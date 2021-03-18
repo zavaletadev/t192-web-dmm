@@ -13,6 +13,7 @@ import {
 	Switch,
 	Route,
 } from 'react-router-dom';
+import AdminApp from './components/AdminApp';
 
 function App() {
 	/**
@@ -36,6 +37,10 @@ function App() {
 
 				<Route path='/registro'>
 					<Registro />
+				</Route>
+
+				<Route path='/admin'>
+					<AdminApp />
 				</Route>
 			</Switch>
 		</Router>
