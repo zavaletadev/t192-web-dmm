@@ -5,11 +5,12 @@ import React, { useEffect } from 'react';
  * de administración del panel web
  */
 import {
-	BrowserRouter as Router,
 	Switch,
 	Route,
 	useRouteMatch,
 } from 'react-router-dom';
+import Home from '../pages/admin/Home';
+import Perfil from '../pages/admin/Perfil';
 import AdminHeader from './AdminHeader';
 import AdminMenu from './AdminMenu';
 
@@ -37,29 +38,27 @@ const AdminApp = (props) => {
 	}, []);
 	return (
 		<div className='container-scroller'>
-			<AdminHeader />
+			<AdminHeader adminBaseUrl={adminBaseUrl} />
 
 			<div className='container-fluid page-body-wrapper'>
-				<AdminMenu />
+				<AdminMenu adminBaseUrl={adminBaseUrl} />
 
 				<div className='main-panel'>
 					<div className='content-wrapper'>
-						<Router>
-							<Switch>
-								<Route
-									exact
-									path={adminBaseUrl.url}
-								>
-									<h1>En admin home</h1>
-								</Route>
-								<Route
-									exact
-									path={`${adminBaseUrl.url}/perfil`}
-								>
-									<h1>En admin perfíl</h1>
-								</Route>
-							</Switch>
-						</Router>
+						<Switch>
+							<Route
+								exact
+								path={adminBaseUrl.url}
+							>
+								<Home />
+							</Route>
+							<Route
+								exact
+								path={`${adminBaseUrl.url}/perfil`}
+							>
+								<Perfil />
+							</Route>
+						</Switch>
 					</div>
 				</div>
 			</div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const AdminMenu = (props) => {
 	return (
@@ -31,26 +32,26 @@ const AdminMenu = (props) => {
 					Menú principal
 				</li>
 				<li className='nav-item'>
-					<a
+					<NavLink
 						className='nav-link'
-						href='../../index.html'
+						to={props.adminBaseUrl.url}
 					>
 						<i className='menu-icon typcn typcn-document-text'></i>
 						<span className='menu-title'>
 							Inicio
 						</span>
-					</a>
+					</NavLink>
 				</li>
 				<li className='nav-item'>
-					<a
+					<NavLink
 						className='nav-link'
-						href='../../pages/forms/basic_elements.html'
+						to={`${props.adminBaseUrl.url}/perfil`}
 					>
 						<i className='menu-icon typcn typcn-shopping-bag'></i>
 						<span className='menu-title'>
 							Mi perfíl
 						</span>
-					</a>
+					</NavLink>
 				</li>
 				<li className='nav-item'>
 					<a
